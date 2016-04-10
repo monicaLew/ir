@@ -54,4 +54,24 @@
               <property name="defaultContentType" value="text/html"/>
        </bean>
 
+       <bean class="com.heroku.sdk.jdbc.DatabaseUrl" id="databaseUrl">
+              <constructor-arg name="envVar" value="DATABASE_URL"/>
+              <constructor-arg name="local" value="false"/>
+       </bean>
+
+       <bean class="org.apache.commons.dbcp2.BasicDataSource" id="dataSource">
+              <property name="driverClassName" value="org.postgresql.Driver"/>
+              <property name="url" value="#{@databaseUrl.jdbcUrl()}"/>
+              <property name="username" value="#{@databaseUrl.username()}"/>
+              <property name="password" value="#{@databaseUrl.password()}"/>
+              <property name="testOnBorrow" value="true"/>
+              <property name="validationQuery" value="SELECT 1"/>
+              <property name="maxIdle" value="2"/>
+              <property name="maxTotal" value="2"/>
+       </bean>
+
+       <bean class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" id="jdbcTemplate">
+              <constructor-arg name="dataSource" ref="dataSource"/>
+       </bean>
+
 </beans>

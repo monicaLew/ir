@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--DOCTYPE log4j:configuration SYSTEM "log4j.dtd"-->
+<!--log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/"-->
+<!-- http://www.skipy.ru/useful/logging.html#ref6 -->
+
+<!DOCTYPE log4j:configuration SYSTEM "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration>
+
+    <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <param name="Encoding" value="Cp866"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%-5p][%-16.16t][%32.32c] - %m%n"/>
+        </layout>
+    </appender>
+
+    <!--logger name="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </logger-->
+
+    <!--logger name="org.springframework.web.servlet.DispatcherServlet" additivity="false">
+        <level value="ALL"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </logger-->
+
+    <root>
+        <priority value="WARN"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </root>
+
+</log4j:configuration>
+
+<!--
+
+Уровни логирования для логгера: TRACE DEBUG INFO WARN ERROR FATAL OFF
+
+Additivity - наследовать ли аппендеры из вышестоящего логгера
+
+http://www.skipy.ru/useful/logging.html
+
+-->
