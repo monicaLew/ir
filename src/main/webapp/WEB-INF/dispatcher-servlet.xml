@@ -43,7 +43,7 @@
               <property name="ignoreAcceptHeader" value="true"/>
               <property name="useJaf" value="false"/>
               <property name="favorParameter" value="true"/>
-              <property name="parameterName" value="mediaType"/>
+              <property name="parameterName" value="media-type"/>
               <property name="favorPathExtension" value="true"/>
               <property name="mediaTypes">
                      <map>

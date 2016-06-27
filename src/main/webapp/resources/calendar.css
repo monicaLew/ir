@@ -1,0 +1,16 @@
+h1, h2 {
+    text-align: center;
+}
+h1 {
+    font-size: 54px;
+}
+td, th {
+    text-align: right;
+}
+.day {
+    min-height: 24px;
+    overflow: auto;
+}
+th {
+    background-color: lavender;
+}
